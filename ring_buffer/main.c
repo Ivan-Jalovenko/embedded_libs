@@ -1,7 +1,6 @@
 #include "constants.h"
-#include "tests.h"
+#include "ring_buffer.h"
 
 int main() {
-    rb_general_test();
     return ExitCode_Success;
 }
