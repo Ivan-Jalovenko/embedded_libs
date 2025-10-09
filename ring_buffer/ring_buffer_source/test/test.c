@@ -4,7 +4,10 @@
 #include <assert.h>
 
 #include "ring_buffer.h"
-#include "tests.h"
+#include "constants.h"
+#include "test.h"
+
+
 /** ------------------------------
  *  Ring buffer init test section
  *  ------------------------------
@@ -134,4 +137,8 @@ void rb_general_test() {
     rb_state_helpers_test();
 
     printf("\nAll tests are passed successfully.\n");
+}
+
+int main() {
+    return ExitCode_Success;
 }

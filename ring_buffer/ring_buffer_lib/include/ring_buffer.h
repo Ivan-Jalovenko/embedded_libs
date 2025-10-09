@@ -5,7 +5,9 @@
 #include <stddef.h>
 #include <stdbool.h>
     
-#include "RB_config.h"
+#ifndef RB_BUFFER_SIZE
+    #define RB_BUFFER_SIZE 32
+#endif
 
 #ifndef RB_BUFFER_SIZE
     #error "RING_BUFFER_H: RB_BUFFER_SIZE is not defined!" 
@@ -28,14 +30,14 @@
 #endif
 
 #ifdef RB_VOLATILE_SET
-    #define Q_VOLATILE volatile 
+    #define RB_VOLATILE volatile 
 #else
-    #define Q_VOLATILE
+    #define RB_VOLATILE
 #endif
 
 typedef struct {
-    Q_VOLATILE uint8_t buffer[RB_BUFFER_SIZE];
-    Q_VOLATILE size_t head, tail;
+    RB_VOLATILE uint8_t buffer[RB_BUFFER_SIZE];
+    RB_VOLATILE size_t head, tail;
     size_t count;
 } RingBuffer_t;
 
